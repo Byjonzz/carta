@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
 
 :root {
-    --primary-color: #ff69b4;
+    --primary-color: #ad00b6;
     --secondary-color: #a80fce;
     --envelope-color: #fff5f8;
     --envelope-shadow: #ffdbeb;
@@ -278,3 +278,4 @@ h1 {
     }
 
 }
+
