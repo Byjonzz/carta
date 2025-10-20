@@ -2,7 +2,7 @@
 
 :root {
     --primary-color: #ff69b4;
-    --secondary-color: #ffd1dc;
+    --secondary-color: #a80fce;
     --envelope-color: #fff5f8;
     --envelope-shadow: #ffdbeb;
     --text-color: #333;
@@ -276,4 +276,5 @@ h1 {
     p {
         font-size: 0.9em;
     }
+
 }
