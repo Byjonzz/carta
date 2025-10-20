@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="envelope">
+        <div class="envelope-flap"></div>
+        <div class="envelope-front">
+            <div class="envelope-left"></div>
+            <div class="envelope-right"></div>
+            <div class="envelope-seal">
+                <span>Para: Lizet</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <h1>¡Feliz Cumpleaños!</h1>
+                <p class="name">Lizet</p>
+                <p>Hermana. Quiero que sepas cuánto te admiro y lo orgulloso que estoy de ti. Has enfrentado desafíos con valentía y siempre me inspiras a ser mejor.</p>
+                <p>Deseo que este nuevo año te regale momentos felices, salud y todas las oportunidades que mereces. Que sigas creciendo y alcanzando tus metas.</p>
+                <p>Disfruta cada instante de tu día</p>
+                <p>Con mucho cariño,</p>
+                <p class="signature">Tu Hermano</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.envelope').addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+
+        function createFirework(x, y) {
+            const starsContainer = document.querySelector('.stars');
+            const numberOfSparkles = 12; // Número de destellos por fuego artificial
+            const colors = ['#ff4444', '#44ff44', '#4444ff', '#ffff44', '#ff44ff', '#44ffff'];
+            
+            for (let i = 0; i < numberOfSparkles; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                
+                // Posición inicial del fuego artificial
+                sparkle.style.left = `${x}%`;
+                sparkle.style.top = `${y}%`;
+                
+                // Color aleatorio
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                sparkle.style.setProperty('--sparkle-color', color);
+                
+                // Duración y retraso
+                sparkle.style.setProperty('--duration', '1.5s');
+                sparkle.style.setProperty('--delay', `${Math.random() * 0.5}s`);
+                
+                // Rotación aleatoria
+                sparkle.style.transform = `rotate(${(i * 360 / numberOfSparkles) + Math.random() * 30}deg)`;
+                
+                starsContainer.appendChild(sparkle);
+                
+                // Eliminar el destello después de la animación
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }
+        }
+
+        function startFireworks() {
+            setInterval(() => {
+                // Posición aleatoria en la parte superior de la pantalla
+                const x = 20 + Math.random() * 60; // Entre 20% y 80% del ancho
+                const y = 30 + Math.random() * 40; // Entre 30% y 70% del alto
+                createFirework(x, y);
+            }, 1000); // Crear un nuevo fuego artificial cada segundo
+        }
+
+        startFireworks();
+    </script>
+</body>
+</html>
